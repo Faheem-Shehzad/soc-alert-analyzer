@@ -22,6 +22,10 @@ def analyze_alert(source_ip, username, event_type):
         severity = "HIGH"
         recommendation = "Investigate the PowerShell command and parent process."
 
+    elif event_type == "Impossible Travel":
+        severity = "HIGH"
+        recommendation = "Investigate whether the account was compromised."
+
     else:
         severity = "MEDIUM"
         recommendation = "Perform additional investigation."
@@ -57,6 +61,12 @@ def main():
         "192.168.1.100",
         "administrator",
         "Suspicious PowerShell"
+    )
+    
+    analyze_alert(
+        "10.10.20.15",
+        "jsmith",
+        "Impossible Travel"
     )
 
 
