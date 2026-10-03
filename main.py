@@ -5,6 +5,13 @@ def analyze_alert(source_ip, username, event_type):
     """
     Analyze a security event and assign a severity level.
     """
+    suspicious_ips = [
+        "10.10.20.15",
+        "192.168.1.100"
+    ]
+
+    if source_ip in suspicious_ips:
+        print("WARNING: Source IP is on the suspicious IP list!")
 
     if event_type == "Multiple Failed Logins":
         severity = "HIGH"
